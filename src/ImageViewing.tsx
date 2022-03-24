@@ -15,6 +15,7 @@ import {
   VirtualizedList,
   ModalProps,
   Modal,
+  StatusBar,
 } from "react-native";
 
 import ImageItem from "./components/ImageItem/ImageItem";
@@ -105,7 +106,8 @@ function ImageViewing({
       supportedOrientations={["portrait"]}
       hardwareAccelerated
     >
-      <StatusBarManager presentationStyle={presentationStyle} />
+      <StatusBar hidden />
+      {/* <StatusBarManager presentationStyle={presentationStyle} /> */}
       <View style={[styles.container, { opacity, backgroundColor }]}>
         <Animated.View style={[styles.header, { transform: headerTransform }]}>
           {typeof HeaderComponent !== "undefined"
