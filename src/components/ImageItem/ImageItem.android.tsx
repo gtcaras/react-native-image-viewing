@@ -6,7 +6,7 @@
  *
  */
 
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 
 import {
   Animated,
@@ -14,6 +14,7 @@ import {
   StyleSheet,
   NativeScrollEvent,
   NativeSyntheticEvent,
+  StatusBar
 } from "react-native";
 
 import useImageDimensions from "../../hooks/useImageDimensions";
@@ -112,6 +113,10 @@ const ImageItem = ({
     scrollValueY.setValue(offsetY);
   };
 
+  useEffect(() => {
+      StatusBar.setHidden(true);
+  }, []);
+
   return (
     <Animated.ScrollView
       ref={imageContainer}
@@ -140,9 +145,8 @@ const ImageItem = ({
 
 const styles = StyleSheet.create({
   listItem: {
-    margin: 0,
     width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT + 100,
+    height: SCREEN_HEIGHT,
   },
   imageScrollContainer: {
     height: SCREEN_HEIGHT * 2,
