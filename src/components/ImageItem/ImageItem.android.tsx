@@ -140,6 +140,7 @@ const ImageItem = ({
 
 const styles = StyleSheet.create({
   listItem: {
+    margin: 0,
     width: SCREEN_WIDTH,
     height: SCREEN_HEIGHT + 100,
   },
